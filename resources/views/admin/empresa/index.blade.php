@@ -6,9 +6,9 @@
     <table class="table table caption-top" >
         <caption class="mb-2">
             <h1 class="display-3 mb-3">Empresas</h1>
-            <a href="/empresa/agregar">Agregar nuevo</a>
+            <a href="/admin/empresa/agregar">Agregar nuevo</a>
             <span>&#8226;</span>
-            <a href="/juego">Juegos</a>
+            <a href="/admin/juego">Juegos</a>
             <span>&#8226;</span>
             <a href="#">Usuarios</a>
         </caption>

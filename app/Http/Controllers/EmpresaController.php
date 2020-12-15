@@ -42,7 +42,7 @@ class EmpresaController extends Controller
         $empresa->pais = $request->pais;
         $empresa->save();
 
-        return redirect('/empresa');
+        return redirect('/admin/empresa');
     }
 
     /**

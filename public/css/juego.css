@@ -95,3 +95,7 @@
     text-decoration: none;
     color: var(--color-texto-1);
 }
+
+.descripcion {
+    white-space: pre-wrap;
+}

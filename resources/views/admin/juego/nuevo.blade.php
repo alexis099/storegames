@@ -6,7 +6,7 @@
     <caption class="mb-2">
         <h1 class="display-3 mb-3">Agregar juego</h1>
     </caption>
-    <form action="/juego/guardar", method="POST" enctype="multipart/form-data">
+    <form action="/admin/juego/guardar", method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>

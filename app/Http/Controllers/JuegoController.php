@@ -135,7 +135,7 @@ class JuegoController extends Controller
         // $url = Storage::url($path);
 
         // return view('juego.verimagen')->with('imagen', $url);
-        return redirect('/juego');
+        return redirect('/admin/juego');
     }
 
     /**

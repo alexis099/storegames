@@ -16,7 +16,7 @@
     </caption>
     <br>
 
-    <form action="/empresa/guardar" method="post" enctype="multipart/form-data">
+    <form action="/admin/empresa/guardar" method="post" enctype="multipart/form-data">
         @csrf
         <label for="nombre">Nombre:</label>
         <input type="text" class="form-control" name="nombre" id="nombre" autocomplete="off" style="width: 600px" >
