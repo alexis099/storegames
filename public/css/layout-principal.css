@@ -1,0 +1,16 @@
+* {
+    --fondo-1: url('https://cdn.miscellaneoushi.com/1682x1050/20121021/war%20dark%20bombs%20tile%201682x1050%20wallpaper_www.miscellaneoushi.com_52.jpg');
+    --fondo-2: url('https://i.pinimg.com/originals/9f/b5/3e/9fb53ea40dd0d27d03300dfa58b22068.jpg');
+    --fondo-3: url('https://silviahartmann.com/background-tile-art/images/black_woven_seamless_tile.jpg');
+
+
+    --color-texto-1: #bbb;
+    --color-texto-2: #61b15a;
+}
+
+body {
+    background-image: var(--fondo-2);
+    background-repeat: repeat;
+    background-color: #1a1a1a;
+    background-blend-mode: darken;
+}
