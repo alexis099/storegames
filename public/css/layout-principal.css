@@ -6,6 +6,8 @@
 
     --color-texto-1: #bbb;
     --color-texto-2: #61b15a;
+    --color-texto-3: #777;
+    --color-texto-4: #fff;
 }
 
 body {
@@ -13,4 +15,20 @@ body {
     background-repeat: repeat;
     background-color: #1a1a1a;
     background-blend-mode: darken;
+}
+
+.color-1 {
+    color: var(--color-texto-1);
+}
+
+.color-2 {
+    color: var(--color-texto-2);
+}
+
+.color-3 {
+    color: var(--color-texto-3);
+}
+
+.color-4 {
+    color: var(--color-texto-4);
 }

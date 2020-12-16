@@ -7,10 +7,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Juego;
 use App\Models\Imagen;
 use App\Models\Empresa;
+use App\Models\Carrito;
 
 class JuegoController extends Controller
 {
@@ -47,12 +49,16 @@ class JuegoController extends Controller
                 ->with('juego', $juego);
     }
 
+    public function agregar_carrito($id)
+    {
+        $id_usuario = Auth::id();
+        $carrito = new Carrito;
+        $carrito->id_juego = $id;
+        $carrito->id_usuario = $id_usuario;
+        $carrito->save();
+        return redirect('/carrito');
+    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $juegos = DB::table('juego')
@@ -74,11 +80,6 @@ class JuegoController extends Controller
         // return $juegos;
     }
 
-    /**
-     * Ver las imagenes de un juego.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function imagenes($id)
     {
         $imagenes = Imagen::where('id_juego', $id)->get();
@@ -86,23 +87,12 @@ class JuegoController extends Controller
         return view('admin.juego.imagenes')->with('imagenes', $imagenes);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $empresas = Empresa::all();
         return view('admin.juego.nuevo')->with('empresas', $empresas);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $juego = new Juego;
@@ -138,46 +128,21 @@ class JuegoController extends Controller
         return redirect('/admin/juego');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

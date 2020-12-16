@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CarritoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,12 @@ use App\Http\Controllers\EmpresaController;
 // navegacion principal
 Route::get('/', [JuegoController::class, 'principal']);
 Route::get('/juego/{id}', [JuegoController::class, 'ver']);
+Route::get('/agregar-carrito/{id}', [JuegoController::class, 'agregar_carrito'])->middleware('auth');
+Route::get('/eliminar-carrito/{id}', [CarritoController::class, 'destroy'])->middleware('auth');
+
+// usuarios
+Route::get('/carrito', [UsuarioController::class, 'carrito']);
+Route::get('/pago', [UsuarioController::class, 'pago']);
 
 
 Route::prefix('admin')->group(function () {

@@ -18,16 +18,13 @@
                 <h1 class="titulo display-3">{{ $juego->titulo }}</h1>
                 <div class="precio display-4">$ {{ $juego->precio }}</div>
             </div>
-            <a class="link-comprar" href="#">Agregar al carrito</a>
+            <a class="link-comprar" href={{"/agregar-carrito/".$juego->id}}>Agregar al carrito</a>
         </div>
     </div>
     <div style="margin: .25em; padding: 1em">
         <h2 class="titulo display-3 mt-5">Informaci&oacute;n</h2>
-        <span class="descripcion">
-            {{ $juego->descripcion }}
-        </span>
+        <span class="descripcion">{{ $juego->descripcion }}</span>
     </div>
-
 
     <script>
         const img_principal = document.querySelector('#imagen-principal');

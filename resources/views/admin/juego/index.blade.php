@@ -29,8 +29,8 @@
                 <td>{{ $juego->distribuidora }}</td>
                 <td>{{ $juego->desarrolladora }}</td>
                 <td>
-                    <a href={{ "/juego/".$juego->id.'/imagenes' }}>Imagenes</a>
-                    <a href={{ "/juego/eliminar/".$juego->id }}>Eliminar</a>
+                    <a href={{ "/admin/juego/".$juego->id.'/imagenes' }}>Imagenes</a>
+                    <a href={{ "/admin/juego/eliminar/".$juego->id }}>Eliminar</a>
                 </td>
             </tr>
             @endforeach

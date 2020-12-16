@@ -3,81 +3,74 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function carrito() {
+        $items = DB::table('carrito')
+                ->join('users', function($join) {
+                    $join->on('carrito.id_usuario', '=', 'users.id')
+                         ->where('users.id', '=', Auth::id());
+                })
+                ->join('juego', 'carrito.id_juego', '=', 'juego.id')
+                ->select(
+                    'carrito.id as id',
+                    'carrito.created_at as fecha_agregado',
+                    'juego.titulo as titulo',
+                    'juego.precio as precio',
+                    'juego.portada as portada',
+                    'juego.id as id_juego'
+                )->get();
+        $total = 0;
+        foreach($items as $item) {
+            $total += $item->precio;
+        }
+        $vacio = $total === 0 ? '0' : '1';
+        return view('navegacion-principal.carrito')
+                ->with('items', $items)
+                ->with('total', $total)
+                ->with('vacio', $vacio);
+    }
+
+    public function pago()
+    {
+        return view('navegacion-principal.pago');
+    }
+
     public function index()
     {
         //
-        return "hola";
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
