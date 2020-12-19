@@ -22,7 +22,8 @@
             @foreach ($compras as $item)
                 <tr>
                     <td>
-                        <img src={{asset($item->portada)}} width="64px" height="32px" alt="Portada">
+                        <a href={{"/juego/".$item->id_juego}}>
+                        <img src={{asset($item->portada)}} width="64px" height="32px" alt="Portada"></a>
                         <span style="margin-left: 10px">{{$item->titulo}}</span>
                     </td>
                     <td style="width: 200px">{{'$'.$item->precio}}</td>

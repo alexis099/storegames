@@ -7,6 +7,7 @@
 @endsection
 
 @section('contenido')
+    <h1 class="titulo display-3">{{ $juego->titulo }}</h1>
     <div class="informacion">
         <div class="visualizacion-imagenes">
             <img id="imagen-principal" alt="">
@@ -14,15 +15,15 @@
             <button class="btn-desplazamiento" id="bot-siguiente"><i class="fas fa-angle-double-right"></i></button>
         </div>
         <div class="info">
-            <div>
-                <h1 class="titulo display-3">{{ $juego->titulo }}</h1>
-                <div class="precio display-4">$ {{ $juego->precio }}</div>
+            <img class="portada" src={{asset($juego->portada)}} alt="Portada">
+            <div class="precio display-4">
+                <p>$ {{ $juego->precio }}</p>
+                @if ($existe === '1')
+                    <a class="a-btn a-btn-verde link-comprar" href={{"/eliminar-carrito/".$carrito}}>Eliminar del carrito</a>
+                @else
+                    <a class="a-btn a-btn-azul link-comprar" href={{"/agregar-carrito/".$juego->id}}>Agregar al carrito</a>
+                @endif
             </div>
-            @if ($existe === '1')
-                <a class="link-comprar" href={{"/eliminar-carrito/".$carrito}}>Eliminar del carrito</a>
-            @else
-                <a class="a-btn a-btn-azul" style="width: 400px; text-align: center; font-size: 1.23rem; line-height: 50px;" href={{"/agregar-carrito/".$juego->id}}>Agregar al carrito</a>
-            @endif
         </div>
     </div>
     <div style="margin: .25em; padding: 1em">

@@ -29,6 +29,7 @@ class CompraController extends Controller
                     ->select(
                         'compra.created_at as fecha',
                         'compra.precio as precio',
+                        'juego.id as id_juego',
                         'juego.titulo as titulo',
                         'juego.portada as portada',
                     )->get();

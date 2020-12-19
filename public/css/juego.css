@@ -1,24 +1,36 @@
+.titulo,
+.link-comprar,
+.descripcion {
+    color: var(--color-texto-1);
+}
+
+.titulo {
+    /* width: 450px; */
+    margin-bottom: 60px;
+    word-wrap: break-word;
+}
+
 .informacion {
+    width: 96%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: .25em ;
+    margin: .25em auto ;
 }
 
 .visualizacion-imagenes {
     position: relative;
-    width: 700px; height: 500px;
-    margin: 0 1em ;
+    width: 400px; height: 350px;
+    margin-right: .5em ;
     position: relative;
     flex-grow: 1;
     flex-shrink: .5;
 }
 
 #imagen-principal {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    -webkit-box-shadow: 0px 0px 10px 0px #afafaf;
-    box-shadow: 0px 0px 10px 0px #afafaf;
 }
 
 .btn-desplazamiento {
@@ -54,23 +66,21 @@
 
 .info {
     display: flex;
+    min-width: 360px;
+    max-width: 360px;
+    width: 360px;
     flex-grow: 1;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    margin: 1em 1em 0 ;
+    margin: 0 .5em;
 }
 
-.titulo,
-.link-comprar,
-.descripcion {
-    color: var(--color-texto-1);
-}
-
-.titulo {
-    width: 450px;
-    margin-bottom: 60px;
-    word-wrap: break-word;
+.info .portada {
+    width: 360px;
+    height: 180px;
+    /* width: 100%; */
+    /* margin: 0 auto; */
 }
 
 .precio {
@@ -78,15 +88,10 @@
 }
 
 .link-comprar {
-    display: inline-block;
-    align-self: center;
-    width: 400px;
-    padding: 1em 2em;
-    box-sizing: border-box;
-    background-color: var(--color-texto-5);
-    text-decoration: none;
-    font-size: 2rem;
-    line-height: 100%;
+    /* width: 360px !important; */
+    width: 100%;
+    font-size: 1.23rem;
+    line-height: 50px;
 }
 
 .link-comprar:hover, 
