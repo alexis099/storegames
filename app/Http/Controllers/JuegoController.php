@@ -44,9 +44,23 @@ class JuegoController extends Controller
     {
         $imagenes = Imagen::where('id_juego', $id)->get();
         $juego = Juego::find($id);
+        $existe = '0';
+        $carrito = '-1';
+
+        if (Auth::check()) {
+            $id_usuario = Auth::id();
+            $items = Carrito::where('id_juego', '=', $id)->where('id_usuario', '=', $id_usuario)->get();
+            if(count($items) > 0) {
+                $existe = '1';
+                $carrito = $items[0]->id;
+            }
+        }
+
         return view('navegacion-principal/juego')
-                ->with('imagenes', $imagenes)
-                ->with('juego', $juego);
+            ->with('imagenes', $imagenes)
+            ->with('juego', $juego)
+            ->with('existe', $existe)
+            ->with('carrito', $carrito);
     }
 
     public function agregar_carrito($id)

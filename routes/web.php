@@ -6,6 +6,7 @@ use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\CompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,10 @@ Route::get('/agregar-carrito/{id}', [JuegoController::class, 'agregar_carrito'])
 Route::get('/eliminar-carrito/{id}', [CarritoController::class, 'destroy'])->middleware('auth');
 
 // usuarios
-Route::get('/carrito', [UsuarioController::class, 'carrito']);
-Route::get('/pago', [UsuarioController::class, 'pago']);
+Route::get('/carrito', [UsuarioController::class, 'carrito'])->middleware('auth');
+Route::get('/compras', [CompraController::class, 'index'])->middleware('auth');
+Route::get('/pago', [UsuarioController::class, 'pago'])->middleware('auth');
+Route::post('/pago', [CompraController::class, 'store'])->middleware('auth');
 
 
 Route::prefix('admin')->group(function () {

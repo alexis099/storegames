@@ -83,7 +83,7 @@
     width: 400px;
     padding: 1em 2em;
     box-sizing: border-box;
-    background-color: #153e90;
+    background-color: var(--color-texto-5);
     text-decoration: none;
     font-size: 2rem;
     line-height: 100%;

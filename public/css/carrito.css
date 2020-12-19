@@ -15,7 +15,8 @@
     margin-bottom: 20px;
 }
 
-.item__btn-eliminar {
+.item__btn-eliminar, 
+.item__btn-comprar {
     display: inline-block;
     width: 200px;
     padding: .25em 1em;
@@ -26,7 +27,10 @@
 
 .item__btn-eliminar:hover,
 .item__btn-eliminar:visited,
-.item__btn-eliminar:link {
+.item__btn-eliminar:link, 
+.item__btn-comprar:hover,
+.item__btn-comprar:visited,
+.item__btn-comprar:link {
     color: var(--color-texto-4);
     text-decoration: none;
 }
@@ -40,4 +44,8 @@
     width: 300px;
     height: 160px;
     object-fit: cover;
+}
+
+.item__btn-comprar {
+    background-color: var(--color-texto-5);
 }

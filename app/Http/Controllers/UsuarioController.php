@@ -41,6 +41,12 @@ class UsuarioController extends Controller
         return view('navegacion-principal.pago');
     }
 
+    public function pago_exito()
+    {
+        return view('navegacion-principal.pago-exito');
+    }
+
+
     public function index()
     {
         //

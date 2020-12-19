@@ -1,6 +1,6 @@
 @extends('layouts.layout-principal')
 
-@section('titulo', 'Titulo')
+@section('titulo', $juego->titulo)
 
 @section('header')
     <link rel="stylesheet" href={{ asset('css/juego.css') }}>
@@ -18,7 +18,11 @@
                 <h1 class="titulo display-3">{{ $juego->titulo }}</h1>
                 <div class="precio display-4">$ {{ $juego->precio }}</div>
             </div>
-            <a class="link-comprar" href={{"/agregar-carrito/".$juego->id}}>Agregar al carrito</a>
+            @if ($existe === '1')
+                <a class="link-comprar" href={{"/eliminar-carrito/".$carrito}}>Eliminar del carrito</a>
+            @else
+                <a class="a-btn a-btn-azul" style="width: 400px; text-align: center; font-size: 1.23rem; line-height: 50px;" href={{"/agregar-carrito/".$juego->id}}>Agregar al carrito</a>
+            @endif
         </div>
     </div>
     <div style="margin: .25em; padding: 1em">

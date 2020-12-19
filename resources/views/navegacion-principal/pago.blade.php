@@ -30,23 +30,24 @@
     <div class="formulario-tarjeta">
         <h2 class="color-1 display-5" id="dp">Datos del pago</h2>
         <br>
-        <form action="#" id="frm1">
+        <form action="/pago" method="POST" id="frm1">
+            @csrf
             <div class="mb-3">
                 <label for="nombre" class="form-label color-1 display-6">Nombre en la tarjeta</label>
-                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" name="nombre" id="nombre">
+                <input type="text" class="input width100" placeholder="Nombre" aria-label="Nombre" name="nombre" id="nombre" autocomplete="off">
             </div>
             
             <br>
             <div class="mb-3" style="display: flex; justify-content: space-between;">
                 <div style="width: 100%;  margin-right: 10px">
                     <label for="numero" class="form-label color-1 display-6">Número</label>
-                    <input type="text" class="form-control" name="numero" id="numero" style="width: 100%;" aria-describedby="basic-addon3">
+                    <input type="text" class="input" name="numero" id="numero" style="width: 100%;" placeholder="Número de la tarjeta">
                 </div>
                 <div style="width: 100%;  margin-left: 10px">
                     <label for="codigo" class="form-label color-1 display-6">Código</label>
                     <div class="input-group">
-                        <span class="input-group-text">123</span>
-                        <input type="text" class="form-control" name="codigo" id="codigo"  aria-describedby="basic-addon3">
+                        {{-- <span class="input-group-text">123</span> --}}
+                        <input type="text" class="input" name="codigo" id="codigo"  placeholder="Código de seguridad" autocomplete="off">
                     </div>
                 </div>
             </div>
@@ -56,20 +57,26 @@
                 <div style="width: 100%;  margin-right: 10px">
                     <label for="dia" class="form-label color-1 display-6">Vencimiento</label>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">MM/AA</span>
-                        <input type="text" class="form-control" name="dia" id="dia" aria-label="Username">
+                        {{-- <span class="input-group-text">MM/AA</span> --}}
+                        <input type="text" class="input" name="dia" id="dia" aria-label="Vencimiento" placeholder="MM/AA" autocomplete="off">
                     </div>
                 </div>
                 <div style="width: 100%;  margin-left: 10px"></div>
             </div>
-            <button class="formulario-btn color-1" type="submit">Finalizar</button>
+            <div style="text-align: center;">
+                <button class="a-btn a-btn-azul" type="submit">Finalizar</button>
+            </div>
         </form>
 
         <div class="formulario-mp" id="frm2" style="display: none">
-            <button class="formulario-btn color-1">Conectar a Mercado Pago</button>
+            <div style="text-align: center;">
+                <button class="a-btn a-btn-azul">Conectar a Mercado Pago</button>
+            </div>
         </div>
         <div class="formulario-ef" id="frm3" style="display: none">
-            <button class="formulario-btn color-1">Imprimir comprobante de pago</button>
+            <div style="text-align: center;">
+                <button class="a-btn a-btn-azul">Imprimir comprobante de pago</button>
+            </div>
         </div>
     </div>
 
