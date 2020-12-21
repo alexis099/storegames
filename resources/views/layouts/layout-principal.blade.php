@@ -19,6 +19,7 @@
         <section class="superior busqueda-activa" id="superior">
             <nav class="nav">
                 <ul class="accesos dflex align-center height100">
+                    <li class="acceso"><a href="/"><img src={{asset('img/logo.png')}} alt="Logo" id="logo"></a></li>
                     <li class="acceso">CATEGORÍAS</li>
                     <li class="acceso">BIBLIOTECA</li>
                     <li class="acceso">LISTA DE DESEADOS</li>
