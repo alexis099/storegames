@@ -15,19 +15,47 @@
     @show
 </head>
 <body>
-    <section class="superior">
-        <nav class="nav">
-            <ul class="accesos">
-                <li class="acceso">TIENDA</li>
-                <li class="acceso">BIBLIOTECA</li>
-                <li class="acceso">LISTA DE DESEADOS</li>
-            </ul>
-            <ul class="cuenta">
-                <li class="li-cuenta">Crear Cuenta</li>
-                <li class="li-cuenta">Iniciar Sesión</li>
-            </ul>
-        </nav>
-    </section>
+    <div style="position: relative; margin-bottom: 4.77em; z-index: 0">
+        <section class="superior busqueda-activa" id="superior">
+            <nav class="nav">
+                <ul class="accesos dflex align-center height100">
+                    <li class="acceso">CATEGORÍAS</li>
+                    <li class="acceso">BIBLIOTECA</li>
+                    <li class="acceso">LISTA DE DESEADOS</li>
+                    <li class="acceso" ><a class="a color-1" href="/buscar" onclick="
+                    event.preventDefault(); 
+                    document.querySelector('#busqueda').classList.toggle('activado');
+                    document.querySelector('#busqueda').classList.toggle('desactivado');
+                    document.querySelector('#superior').classList.toggle('busqueda-activa');
+                        ">Buscar</a></li>
+                </ul>
+                <section class="cuenta dflex height100">
+                    @if (Auth::check())
+                        <div style="margin-right: 10px">
+                            <li class="li-cuenta"><a class="a color-1" href="/dashboard">{{Auth::user()->name}}</a></li>
+                            <div>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <a class="a color-1" href="/dashboard">Cuenta</a>
+                                    <span>&#8226;</span>
+                                    <a class="a color-1" href="/logout" onclick="event.preventDefault();
+                                    this.closest('form').submit();">Cerrar sesión</a>
+                                </form>
+                            </div>
+                        </div>
+                    @else
+                        <div class="dflex align-center" style="flex-direction: column;">
+                            <li class="li-cuenta"><a class="a color-1" href="/login">Iniciar Sesión</a></li>
+                            <a class="a-btn a-btn-verde" href="#" id="btn-descargar-aplicacion">DESCARGAR APLICACIÓN</a>
+                        </div>
+                    @endif
+                </section>
+            </nav>
+        </section>
+        <div class="desactivado" id="busqueda">
+            <input id="input-busqueda" type="text">
+        </div>
+    </div>
 
     <div class="contenedor">
         @yield('contenido')

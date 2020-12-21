@@ -3,20 +3,32 @@
     width: 100%;
 }
 
+.height100 {
+    height: 100%;
+}
+
+.dflex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
 .color-1 {
-    color: var(--color-texto-1);
+    color: var(--color-texto-1) !important;
 }
 
 .color-2 {
-    color: var(--color-texto-2);
+    color: var(--color-texto-2) !important;
 }
 
 .color-3 {
-    color: var(--color-texto-3);
+    color: var(--color-texto-3) !important;
 }
 
 .color-4 {
-    color: var(--color-texto-4);
+    color: var(--color-texto-4) !important;
 }
 
 .a-btn {
@@ -41,6 +53,10 @@
 	position:relative;
 	top:1px;
 }
+.a:hover,
+.a:link,
+.a:visited,
+.a-btn:hover,
 .a-btn:visited, 
 .a-btn:link {
     text-decoration: none;
